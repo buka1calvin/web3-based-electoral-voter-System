@@ -1,0 +1,8 @@
+service: () -> {
+    createCandidate: (text, text) -> (variant {Ok:record {id:text; name:text; createdAt:nat64; countVote:vec text; nationalId:text}; Err:variant {UserAlreadyExist:text; CandidateDoesNotExist:text; UserAlreadyVoted:text}});
+    createUserToVote: (text, text) -> (variant {Ok:record {id:text; name:text; createdAt:nat64; nationalId:text}; Err:variant {UserAlreadyExist:text}});
+    getCandidate: () -> (vec record {id:text; name:text; createdAt:nat64; countVote:vec text; nationalId:text}) query;
+    getCandidateById: (text) -> (opt record {id:text; name:text; createdAt:nat64; countVote:vec text; nationalId:text}) query;
+    getUserToVote: () -> (vec record {id:text; name:text; createdAt:nat64; nationalId:text}) query;
+    getVotedRecords: () -> (vec record {createdAt:nat64; voterId:text; candidateId:text}) query;
+}
